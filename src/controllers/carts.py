@@ -2,6 +2,11 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from decimal import Decimal
 import datetime
+from fastapi import FastAPI, Request
+import asyncio
+
+
+app = FastAPI()
 
 
 
@@ -15,8 +20,9 @@ from src.models.cart import (
 
 from src.server.database import connect_db, db, disconnect_db
 
+@app.post("/cart")
 async def cart_crud():
-    option = input("Entre com a opção de CRUD: ")
+    # option = input("Entre com a opção de CRUD: ")
     
     await connect_db()
     cart_collection = db.cart_collection
@@ -43,18 +49,14 @@ async def cart_crud():
    
     
     
-    if option == '1':
-        info_cart_insert = await create_cart(
-            cart_collection,
-            cart
-            
-        )        
-        
-        print(info_cart_insert)
-        
     
-    if option == '2':
-        ...
+    info_cart_insert = await create_cart(
+        cart_collection,
+        cart
+        
+    )        
+    
+    print(info_cart_insert)
     
 
     await disconnect_db()
