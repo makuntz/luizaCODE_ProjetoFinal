@@ -5,15 +5,13 @@ import datetime
 
 
 
-
-
 from src.models.cart import (
     create_cart
 )
 
-from src.models.user import (
-    get_user_by_email
-)
+# from src.models.user import (
+#     get_user_by_email
+# )
 
 from src.server.database import connect_db, db, disconnect_db
 
@@ -27,19 +25,19 @@ async def cart_crud():
     
      
     email = "lu_domagalu@gmail.com"
-    user = await get_user_by_email(
-        users_collection,
-        email
-    )
+    # user = await get_user_by_email(
+    #     users_collection,
+    #     email
+    # )
     
-    address_is_true = await address_collection.find_one({"address.is_delivery": True})
+    # address_is_true = await address_collection.find_one({"address.is_delivery": True})
     
     cart =   {
-        "user": user['_id'],
+        "user": '123456',
         "price": 1796.4,
         "paid": False,
         "create": datetime.datetime.now(),
-        "address": address_is_true
+        "address": 'address_is_true'
                   
     } 
    

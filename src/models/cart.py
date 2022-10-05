@@ -15,4 +15,4 @@ async def get_cart(cart_collection, cart_id):
         if data:
             return data
     except Exception as e:
-        print(f'get_user.error: {e}')
+        print(f'get_cart.error: {e}')
