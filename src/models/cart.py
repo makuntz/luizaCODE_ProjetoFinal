@@ -1,10 +1,12 @@
 async def create_cart(cart_collection, cart):
     try:
-        cart = await cart_collection.insert_one(cart)
+        new_cart = cart.dict()
+        inserted_cart = await cart_collection.insert_one(new_cart)
+        return inserted_cart
 
-        if cart.inserted_id:
-            cart = await get_cart(cart_collection, cart.inserted_id)
-            return cart
+        # if inserted_cart.inserted_id:
+        #     data_cart = await get_cart(cart_collection, cart.inserted_id)
+        #     return data_cart
 
     except Exception as e:
         print(f'create_order.error: {e}')
