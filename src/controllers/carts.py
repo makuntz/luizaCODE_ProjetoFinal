@@ -21,15 +21,14 @@ from src.models.cart import (
 
 from src.server.database import connect_db, db, disconnect_db
 
+
+
 @app.get("/")
 def rota_principal():
     return "Seja bem-vinda"
 
 
-
-@app.post("/cart")
 async def cart_crud(cart: CartSchema):
-    # option = input("Entre com a opção de CRUD: ")
     
     await connect_db()
     cart_collection = db.cart_collection
@@ -45,30 +44,30 @@ async def cart_crud(cart: CartSchema):
     
     # address_is_true = await address_collection.find_one({"address.is_delivery": True})
     
-    cart =   {
-    #     "user": '123456',
-        "price": 111.22,
-        "paid": False
-    #     "create": datetime.datetime.now()
-    #     #"address": 'address_is_true'
+    # cart =   {
+    # #     "user": '123456',
+    #     "price": 111.22,
+    #     "paid": False
+    # #     "create": datetime.datetime.now()
+    # #     #"address": 'address_is_true'
                   
-    } 
-   
-    
-    
-    
-    cart = await create_cart(
-        cart_collection,
-        cart   
-    )        
+    # } 
+      
+    @app.post("/cart")
+    async def criar_teste():
+        cart = await create_cart(
+            cart_collection,
+            cart = {
+                "price": 111.22,
+                "paid": False
+           
+            } 
+        )        
 
-    print(cart)
-    
+        print(cart)
+    criar_teste()
 
     await disconnect_db()
-    return cart
+   
 
 
-@app.get("/cart")
-def teste_post(cart):
-    return cart
