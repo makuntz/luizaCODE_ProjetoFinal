@@ -2,8 +2,8 @@ import datetime
 from decimal import Decimal
 from pydantic import BaseModel, Field
 
-from src.schemas.address import Address
-from src.schemas.user import UserSchema
+# from src.schemas.address import Address
+# from src.schemas.user import UserSchema
 
 class CartSchema(BaseModel):
     #user: UserSchema
