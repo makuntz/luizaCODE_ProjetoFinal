@@ -9,8 +9,6 @@ from src.schemas.cart import CartSchema
 app = FastAPI()
 
 
-
-
 from src.models.cart import (
     create_cart
 )
@@ -28,7 +26,7 @@ def rota_principal():
     return "Seja bem-vinda"
 
 
-async def cart_crud(cart: CartSchema):
+async def cart_crud():
     
     await connect_db()
     cart_collection = db.cart_collection
@@ -54,17 +52,17 @@ async def cart_crud(cart: CartSchema):
     # } 
       
     @app.post("/cart")
-    async def criar_teste():
-        cart = await create_cart(
+    async def criar_teste(cart: CartSchema):
+        await create_cart(
             cart_collection,
             cart = {
+                "user": '123456',
                 "price": 111.22,
-                "paid": False
-           
+                "paid": False,
+                "create": datetime.datetime.now()
             } 
         )        
-
-        print(cart)
+    print("deu certooo")
     criar_teste()
 
     await disconnect_db()

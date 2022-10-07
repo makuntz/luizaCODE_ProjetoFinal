@@ -6,8 +6,9 @@ from pydantic import BaseModel, Field
 # from src.schemas.user import UserSchema
 
 class CartSchema(BaseModel):
-    #user: UserSchema
+    # user: UserSchema
+    user: str
     price: Decimal = Field(max_digits=10, decimal_places=2)
     paid: bool = Field(default=False)
-    #create: datetime.datetime = Field(default=datetime.datetime.now())
+    create: datetime.datetime = Field(default=datetime.datetime.now())
     #address: Address
