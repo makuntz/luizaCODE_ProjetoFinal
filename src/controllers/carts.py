@@ -47,8 +47,8 @@ async def cart_crud(cart: CartSchema):
     
     cart =   {
     #     "user": '123456',
-        "price": 1796.4,
-        "paid": False,
+        "price": 111.22,
+        "paid": False
     #     "create": datetime.datetime.now()
     #     #"address": 'address_is_true'
                   
@@ -57,13 +57,12 @@ async def cart_crud(cart: CartSchema):
     
     
     
-    info_cart_insert = await create_cart(
+    cart = await create_cart(
         cart_collection,
-        cart
-        
+        cart   
     )        
-    
-    print(info_cart_insert)
+
+    print(cart)
     
 
     await disconnect_db()
