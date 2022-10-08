@@ -1,4 +1,7 @@
 
+from src.schemas.cart import CartSchema
+
+
 async def create_cart(cart_collection, cart):
     try:
         cart = await cart_collection.insert_one(cart)

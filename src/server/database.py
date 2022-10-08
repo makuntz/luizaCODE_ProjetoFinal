@@ -1,7 +1,6 @@
 from os import environ
 from motor.motor_asyncio import AsyncIOMotorClient
-import asyncio
-
+from src.config import configuracao
 
 
 class DataBase:
@@ -31,10 +30,5 @@ async def connect_db():
 async def disconnect_db():
     db.client.close()
     
+
     
-def iniciar_cliente_mongo() -> AsyncIOMotorClient:
-    # Conectando no banco de dados
-    cliente_mongo = AsyncIOMotorClient()
-    # Por conta dos testes... fizemos este ajuste
-    cliente_mongo.get_io_loop = asyncio.get_event_loop
-    return cliente_mongo

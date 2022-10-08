@@ -4,6 +4,10 @@ from decimal import Decimal
 import datetime
 from fastapi import FastAPI, Request
 from src.schemas.cart import CartSchema
+from src.config import configuracao
+from motor.motor_asyncio import AsyncIOMotorClient
+import asyncio
+
 
 from src.models.cart import (
     create_cart
@@ -15,6 +19,10 @@ from src.models.cart import (
 
 from src.server.database import connect_db, db, disconnect_db
 
+def iniciar_cliente_mongo() -> AsyncIOMotorClient:
+    cliente_mongo = AsyncIOMotorClient(configuracao.bd_url)
+    cliente_mongo.get_io_loop = asyncio.get_event_loop
+    return cliente_mongo
 
 app = FastAPI()
 
@@ -44,7 +52,7 @@ async def cart_crud():
     
     return cart
 
-    
+ 
     
     # users_collection = db.users_collection
     # address_collection = db.address_collection   
