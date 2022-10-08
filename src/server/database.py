@@ -1,5 +1,7 @@
 from os import environ
 from motor.motor_asyncio import AsyncIOMotorClient
+import asyncio
+
 
 
 class DataBase:
@@ -22,9 +24,17 @@ async def connect_db():
         tlsAllowInvalidCertificates=True
     )
     db.users_collection = db.client.shopping_clothes.users
-    db.address_collection = db.client.shopping_clothes.address
+    db.address_collection = db.client.shopping_clothes.addresses
     db.product_collection = db.client.shopping_clothes.products
-    db.cart_collection = db.client.shopping_clothes.cart
-
+    db.cart_collection = db.client.shopping_clothes.carts
+    print("estou aqui")
 async def disconnect_db():
     db.client.close()
+    
+    
+def iniciar_cliente_mongo() -> AsyncIOMotorClient:
+    # Conectando no banco de dados
+    cliente_mongo = AsyncIOMotorClient()
+    # Por conta dos testes... fizemos este ajuste
+    cliente_mongo.get_io_loop = asyncio.get_event_loop
+    return cliente_mongo

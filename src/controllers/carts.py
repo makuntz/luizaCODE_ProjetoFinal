@@ -40,11 +40,10 @@ async def cart_crud():
             dict(cart)
         )
     
-    
     await disconnect_db()
-    print("deu certooo")
-    return cart
     
+    return cart
+
     
     
     # users_collection = db.users_collection
