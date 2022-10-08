@@ -3,18 +3,13 @@ from pymongo import MongoClient
 from decimal import Decimal
 import datetime
 from fastapi import FastAPI
+from src.regras.regras import add_cart
 from src.schemas.cart import CartSchema
 from src.server.database import iniciar_cliente_mongo
+# from src.server.database import connect_db, db, disconnect_db
 
-from src.models.cart import (
-    create_cart
-)
-
-# from src.models.user import (
-#     get_user_by_email
-# )
-
-from src.server.database import connect_db, db, disconnect_db
+# from src.models.cart import create_cart
+# from src.regras.regras import add_cart
 
 cliente_mongo = iniciar_cliente_mongo()
 app = FastAPI()
@@ -24,27 +19,35 @@ app = FastAPI()
 def rota_principal():
     return "Seja bem-vinda"
 
-
-@app.post("/cart")
-async def cart_crud():
+##acrescentar id_prod uto na rota, para verificar se produto existe
+@app.post("/cart/{user}")
+async def cart_crud(user):
+    return await add_cart(user)
+    # await connect_db()
     
-    await connect_db()
-    cart_collection = db.cart_collection
-    cart = {
-                "user": "123456",
-                "price": 111.22,
-                "paid": False,
-                "create": datetime.datetime.now()
-            }
+    # cart_collection = db.cart_collection
     
-    await create_cart(
-            cart_collection,
-            dict(cart)
-        )
+    # ##essa variavel deve conter funcao de busca no banco
+    # cart = { 
+    #             "user": "123456",
+    #             "price": 111.22,
+    #             "paid": False,
+    #             "create": datetime.datetime.now()
+    #         }
+   
+    # if cart["user"] != user:
+    #         await create_cart(
+    #             cart_collection,
+    #             dict(cart)
+    #         )
+    # else:
+    #     print('falhouuu')
     
-    await disconnect_db()
     
-    return cart
+    
+    # await disconnect_db()
+    
+    # return cart
 
  
     
