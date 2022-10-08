@@ -1,7 +1,7 @@
-# from fastapi import FastAPI
+from fastapi import FastAPI
 
-# app = FastAPI()
+app = FastAPI()
 
-# @app.get("/")
-# def rota_principal():
-#     return "Seja bem-vinda"
+@app.get("/")
+def rota_principal():
+    return "Seja bem-vinda"

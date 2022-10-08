@@ -3,11 +3,7 @@ from bson.objectid import ObjectId
 from decimal import Decimal
 import datetime
 from fastapi import FastAPI, Request
-import asyncio
 from src.schemas.cart import CartSchema
-
-app = FastAPI()
-
 
 from src.models.cart import (
     create_cart
@@ -20,20 +16,41 @@ from src.models.cart import (
 from src.server.database import connect_db, db, disconnect_db
 
 
+app = FastAPI()
 
 @app.get("/")
 def rota_principal():
     return "Seja bem-vinda"
 
 
+@app.post("/cart")
 async def cart_crud():
-    
-    await connect_db()
     cart_collection = db.cart_collection
+    await connect_db()
+    cart = {
+                "user": "123456",
+                "price": 111.22,
+                "paid": False,
+                "create": datetime.datetime.now()
+            }
+    
+    await create_cart(
+            cart_collection,
+            cart
+        )
+    
+    
+    await disconnect_db()
+    print("deu certooo")
+    return cart
+    
+    
+    
     # users_collection = db.users_collection
     # address_collection = db.address_collection   
     
-     
+  
+    
     #email = "lu_domagalu@gmail.com"
     # user = await get_user_by_email(
     #     users_collection,
@@ -51,21 +68,11 @@ async def cart_crud():
                   
     # } 
       
-    @app.post("/cart")
-    async def criar_teste(cart: CartSchema):
-        await create_cart(
-            cart_collection,
-            cart = {
-                "user": '123456',
-                "price": 111.22,
-                "paid": False,
-                "create": datetime.datetime.now()
-            } 
-        )        
-    print("deu certooo")
-    criar_teste()
-
-    await disconnect_db()
+   
+    
+        
+         
+    
    
 
 
