@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from bson.objectid import ObjectId
+# from bson.objectid import ObjectId
 from decimal import Decimal
 import datetime
 from fastapi import FastAPI, Request
@@ -25,8 +25,9 @@ def rota_principal():
 
 @app.post("/cart")
 async def cart_crud():
-    cart_collection = db.cart_collection
+    
     await connect_db()
+    cart_collection = db.cart_collection
     cart = {
                 "user": "123456",
                 "price": 111.22,
@@ -36,7 +37,7 @@ async def cart_crud():
     
     await create_cart(
             cart_collection,
-            cart
+            dict(cart)
         )
     
     
