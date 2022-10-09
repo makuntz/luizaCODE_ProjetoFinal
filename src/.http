@@ -39,7 +39,7 @@ content-type: application/json
 
 ###
 #Buscando produto por id
-GET {{apiProduto}}/634344e5bec29954781dac6c
+GET {{apiProduto}}/634344e5bec29954781dac6c/
 content-type: application/json
 
 ###
