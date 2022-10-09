@@ -6,3 +6,7 @@ class ProductSchema(BaseModel):
     size: str = Field(max_length=3)
     decription: str
     price: float
+    type: str
+    category: str
+    trademark: str
+    color: str

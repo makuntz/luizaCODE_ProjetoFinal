@@ -1,6 +1,5 @@
-# from src.server.database import iniciar_cliente_mongo
-# from fastapi import FastAPI
+from src.controllers.rest_conf import criar_aplicacao_fastapi
 
-
-# app = FastAPI()
-# cliente_mongo = iniciar_cliente_mongo()
+# Criando minha aplicação FastAPI e deixando-a 'global'.
+# Este `app` será 'chamado' pelo guvicorn. 
+app = criar_aplicacao_fastapi()
