@@ -17,20 +17,25 @@ async def get_address_id_user(address_collection, user_id):
         print(f'get_address.error: {e}')
 
 #criar endereço quando não existe nenhum endereço vinculado ao usuário
-async def create_address(address_collection, user: UserSchema, user_id, address: Address):
+async def create_address(address_collection, address, user):
     try:
-        if get_address_id_user != None:
-            print('o usuário já possui endereço cadastrado')
-
-        if get_address_id_user == None:
-            address = await address_collection.insert_one({"user": user, "address": address})
+        address = await address_collection.insert_one({"user": user, "address": address})
         
         if address.inserted_id:
-            address = await get_address_id_user(address_collection, user_id)
+            address = await get_address(address_collection, address.inserted_id)
             return address
-                
+
     except Exception as e:
         print(f'create_address.error: {e}')
+        
+
+async def get_address(address_collection, address_id):
+    try:
+        data = await address_collection.find_one({'_id': address_id})
+        if data:
+            return data
+    except Exception as e:
+        print(f'get_address.error: {e}')
 
 #criar endereço quando já existe um endereço vinculado ao usuario
 async def add_address(address_collection, user_id, address_data):
@@ -38,8 +43,10 @@ async def add_address(address_collection, user_id, address_data):
         data = {k: v for k, v in address_data.items() if v is not None}
 
         address = await address_collection.update_one(
+
             {'user._id': user_id}, 
             {'$addToSet': {'address': data}}
+
         )
 
         if address.modified_count:
@@ -47,6 +54,7 @@ async def add_address(address_collection, user_id, address_data):
 
         return False, 0
     except Exception as e:
+
         print(f'add_address.error: {e}')
 
 
@@ -65,6 +73,7 @@ async def update_address(address_collection, address_id, address_data):
         return False, 0
     except Exception as e:
         print(f'update_address.error: {e}')
+
 
 
 #deletar endereço
