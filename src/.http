@@ -38,6 +38,16 @@ GET {{apiProduto}}
 content-type: application/json
 
 ###
+#Buscando produto por id
+GET {{apiProduto}}/6342df86e7e1820dd03c39be
+content-type: application/json
+
+###
+#Deletando produto por id
+DELETE  {{apiProduto}}/6342df86e7e1820dd03c39be
+content-type: application/json
+
+###
 @apiCart={{url}}/api/cart
 POST {{apiCart}}/123456
 

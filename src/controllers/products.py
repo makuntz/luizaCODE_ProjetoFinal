@@ -38,8 +38,13 @@ async def criar_produto(produto: dict):
 async def retornar_produtos():
     return  await get_all_products(COLECAO_PRODUTO)
 
+# Retornando todos os produtos
+@rota_produtos.get("/{id_produto}/")
+async def retornar_produto(id_produto: str):
+    return  await get_product_by_id(COLECAO_PRODUTO, id_produto)
+
 # Deletando um produto pelo seu id
-@rota_produtos.delete("/produto/{id_produto}/")
+@rota_produtos.delete("/{id_produto}/")
 async def deletar_produto(id_produto: str):
    return await delete_product_by_id(COLECAO_PRODUTO, id_produto)
     
