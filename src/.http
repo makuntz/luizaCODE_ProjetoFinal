@@ -1,6 +1,38 @@
+### ************************************
+# API das músicas
+#
 
 ###
-GET http://127.0.0.1:8000
+# URL
+@url=http://localhost:8000
+
+### -------------------------------------
+# Principal 
 
 ###
-POST http://127.0.0.1:8000/cart/123456789
+# (PING) Verificar aplicação web
+GET {{url}}
+
+###
+# URL base para a api de produtos
+@apiProduto={{url}}/api/products
+
+###
+# Cadastra/salva um novo produto
+POST {{apiProduto}}
+
+{
+    "name": "Saia preta da Shein",
+    "size": "M",
+    "decription": "Saia de courinho preto",
+    "price": 50.00,
+    "type": "saia",
+    "category": "feminina",
+    "trademark": "Shein",
+    "color": "preto"
+}
+
+###
+#Buscando produtos
+GET {{apiProduto}}
+content-type: application/json
