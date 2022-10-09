@@ -51,3 +51,19 @@ content-type: application/json
 @apiCart={{url}}/api/cart
 POST {{apiCart}}/123456/554456
 
+
+###
+@apiAddress={{url}}/api/address
+POST {{apiAddress}}/123456
+
+  [
+           {
+              "street": "Rua Setenta e três, Numero 20",
+              "cep": "7451263",
+              "district": "São Paulo",
+              "city": "São Paulo",
+              "state": "São Paulo",
+              "is_delivery": true
+           }
+       ]
+
