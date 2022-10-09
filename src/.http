@@ -36,3 +36,14 @@ POST {{apiProduto}}
 #Buscando produtos
 GET {{apiProduto}}
 content-type: application/json
+
+###
+@apiCart={{url}}/api/cart
+POST {{apiCart}}/123456
+
+ { 
+    "user": "123456",
+    "price": 111.22,
+    "paid": false
+   
+}

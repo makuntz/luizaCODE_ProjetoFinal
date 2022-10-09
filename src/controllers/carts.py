@@ -2,25 +2,27 @@ from pymongo import MongoClient
 # from bson.objectid import ObjectId
 from decimal import Decimal
 import datetime
-from fastapi import FastAPI
+from fastapi import APIRouter, FastAPI
+from src.controllers.products import COLECAO_PRODUTO
+from src.models.persistencia_bd import obter_colecao
 from src.regras.regras import add_cart
 from src.schemas.cart import CartSchema
-from src.server.database import iniciar_cliente_mongo
-# from src.server.database import connect_db, db, disconnect_db
 
 # from src.models.cart import create_cart
 # from src.regras.regras import add_cart
 
-cliente_mongo = iniciar_cliente_mongo()
-app = FastAPI()
 
 
-@app.get("/")
-def rota_principal():
-    return "Seja bem-vinda"
+COLECAO_PRODUTO = obter_colecao("carts")
+
+rota_carts = APIRouter(
+    prefix="/api/cart",
+    tags=["Carts"]
+)
+
 
 ##acrescentar id_prod uto na rota, para verificar se produto existe
-@app.post("/cart/{user}")
+@rota_carts.post("/{user}")
 async def cart_crud(user):
     return await add_cart(user)
     # await connect_db()
