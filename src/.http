@@ -49,7 +49,7 @@ content-type: application/json
 
 ###
 #Deletando produto por id
-DELETE  {{apiProduto}}/6342df86e7e1820dd03c39bf
+DELETE  {{apiProduto}}/6342df86e7e1820dd03c39bf/
 content-type: application/json
 
 ###
