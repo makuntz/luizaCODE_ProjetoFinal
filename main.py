@@ -1,12 +1,22 @@
-import asyncio
+# # from fastapi import FastAPI
+# from motor.motor_asyncio import AsyncIOMotorClient
+# import asyncio
+# from src.config import configuracao
+# from fastapi import FastAPI
+# from src.server.database import iniciar_cliente_mongo
 
-# from src.controllers.users import users_crud
-# from src.controllers.addresses import address_crud
-# from src.controllers.products import products_crud
-# from src.controllers.carrinho import carrinho_crud
-# from src.controllers.orders import order_crud
-from src.controllers.order_item import order_item_crud
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(order_item_crud())
-# loop.run_until_complete(users_crud())
+# app = FastAPI()
+
+# cliente_mongo = iniciar_cliente_mongo()
+
+
+# def iniciar_cliente_mongo() -> AsyncIOMotorClient:
+#     cliente_mongo = AsyncIOMotorClient(configuracao.bd_url)
+#     cliente_mongo.get_io_loop = asyncio.get_event_loop
+#     return cliente_mongo
+
+
+# @app.get("/")
+# def rota_principal():
+#     return "Seja bem-vinda"
