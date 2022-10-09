@@ -26,7 +26,7 @@ async def add_cart(user):
                 "user": "123456",
                 "price": 111.22,
                 "paid": False,
-                "create": datetime.datetime.now()
+                # "create": datetime.datetime.now()
             }
     
     if cart["user"] != user:
