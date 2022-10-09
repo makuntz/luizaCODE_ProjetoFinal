@@ -49,11 +49,5 @@ content-type: application/json
 
 ###
 @apiCart={{url}}/api/cart
-POST {{apiCart}}/123456
+POST {{apiCart}}/123456/554456
 
- { 
-    "user": "123456",
-    "price": 111.22,
-    "paid": false
-   
-}
