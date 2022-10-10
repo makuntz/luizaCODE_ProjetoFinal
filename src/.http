@@ -14,7 +14,7 @@ GET {{url}}
 POST {{apiUser}}
 
 ###
-GET {{apiUser}}/bruna@email.com
+GET {{apiUser}}/@email.com
 
 
 ###

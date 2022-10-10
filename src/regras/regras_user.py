@@ -17,37 +17,46 @@ user = {
                 "is_active": True
             }
 
-# def check(email):
-#     if(re.search(regex,email)):  
-#         print("Email válido")  
+
+
+def check(email):
+    if(re.search(regex,email)):
+        return True  
+        #print("Email válido")  
           
-#     else:  
-#         print("Email inválido")
+    else:
+        print("Email inválido")
+        return False  
+        
     
-
-
 
 
 async def add_user():
     
-#     validate_email = check(user.email)   
+    
+    
+   
     user = { 
-                "name": "lya",
-                "email": "amarelo@email.com",
+                "name": "cascão",
+                "email": "cascao@gmail.com",
                 "password": "senha123",
                 "is_active": True
             }
     
+    validate_email = check(user["email"])
     
+    if validate_email == True:
     
-    await create_user(
-        COLECAO_USER,
-        dict(user)
-        )
+        await create_user(
+            COLECAO_USER,
+            dict(user)
+            )
 
-    print('DEU CERTOOOO')
-    return user
-
+        print('DEU CERTOOOO')
+        return user
+    else:
+        print("Falhou!")
+        
 
 async def get_user(email):
     # email = "bruna@email.com"
