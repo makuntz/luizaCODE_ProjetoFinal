@@ -67,7 +67,28 @@ A divisão de pastas foi feita da seguinte forma:
 
 Já a divisão das responsabilidades são:
 
-- <b>User:</b>
-- <b>Address:</b>
-- <b>Products:</b>
-- <b>Carts:</b>
+- <b>User: Catiussia e Lya</b>
+- <b>Address: Manuela e Maíra</b>
+- <b>Products: Marcella</b>
+- <b>Carts: Maíra e Lya</b>
+
+## Rotas e endpoints
+
+Os endpoints disponíveis são:
+
+1. Home
+
+- GET / --> pagina inicial
+
+2. Users
+
+-
+
+3. Address
+
+- POST api/address/{id_user} --> adiciona um novo endereço ao usuário
+- GET api/address/{email} --> faz busca do endereço através do email que for passado como parâmetro
+
+4. Cart
+
+- POST api/cart/{id_user}/{id_product} --> adicionar um carrinho passando um usuario e um produto como pamâmetro
