@@ -25,7 +25,8 @@ async def get_user(user_collection, user_id):
         
 async def get_user_by_email(user_collection, email):
     try:
-        user = await user_collection.find_one({'email': email})
+        user = await user_collection.find_one({'email': email}, {'_id': 0})
+        
         if user:
             return user
     except Exception as e:

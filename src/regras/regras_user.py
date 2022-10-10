@@ -49,15 +49,18 @@ async def add_user():
     return user
 
 
-async def get_user():
-    #email = "bruna@email.com"
+async def get_user(email):
+    # email = "bruna@email.com"
+    print(email)
     response = await get_user_by_email(
         COLECAO_USER,
-        {'email': email}
+        email
     )
-        
+    print(response)
     return response
 
 
 # async def delete_user():
 #     await
+
+# {'_id': ObjectId('634482316167dd031bc29ee5'), 'name': 'lya', 'email': 'bruna@email.com', 'password': 'senha123', 'is_active': True}
