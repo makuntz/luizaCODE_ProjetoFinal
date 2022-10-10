@@ -49,14 +49,21 @@ async def add_user():
     return user
 
 
-async def get_user():
+async def get_user(email):
     #email = "bruna@email.com"
-    response = await get_user_by_email(
+    
+    # response = await get_user_by_email(
+    #     COLECAO_USER,
+    #     {'email': email}
+    # )
+    print("Entrei get_user Regras, email: ", email)
+    user = await get_user_by_email(
         COLECAO_USER,
-        {'email': email}
+        email
     )
+    print("Saindo get_user Regras, user:", user)
         
-    return response
+    return user
 
 
 # async def delete_user():

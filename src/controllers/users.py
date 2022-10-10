@@ -15,5 +15,8 @@ async def create_user():
     return await add_user()
 
 @rota_user.get("/{email}")
-async def find_user():
-    return await get_user()
+async def find_user(email: str):
+    print("To entrando pela rota, email: ", email)
+    user = await get_user(email)
+    print("To indo pro retorno final, user: ", user)
+    return user
