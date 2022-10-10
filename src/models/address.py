@@ -29,9 +29,9 @@ async def create_address(address_collection, address, user):
         print(f'create_address.error: {e}')
         
 
-async def get_address(address_collection, address_id):
+async def get_address(address_collection, address_email):
     try:
-        data = await address_collection.find_one({'_id': address_id})
+        data = await address_collection.find_one({'email': address_email})
         if data:
             return data
     except Exception as e:
