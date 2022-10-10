@@ -11,4 +11,4 @@ rota_user = APIRouter(
 
 @rota_user.post("/")
 async def create_user():
-    return await add_user
+    return await add_user()

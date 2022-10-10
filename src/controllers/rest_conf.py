@@ -4,6 +4,8 @@ from src.controllers.products import rota_produtos
 from src.controllers.principal_rest import rota_principal
 from src.controllers.carts import rota_carts
 from src.controllers.addresses import rota_address
+from src.controllers.users import rota_user
+
 
 def configurar_rotas(app: FastAPI):
     # Publicando as rotas para o FastAPI.
@@ -11,6 +13,7 @@ def configurar_rotas(app: FastAPI):
     app.include_router(rota_produtos)
     app.include_router(rota_carts)
     app.include_router(rota_address)
+    app.include_router(rota_user)
 
 def configurar_api_rest(app: FastAPI):
     # Configurando o CORS
