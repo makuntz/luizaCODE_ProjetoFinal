@@ -11,7 +11,7 @@ COLECAO_USER = obter_colecao("users")
 async def add_user():
     
     user = { 
-                "name": "Bruna",
+                "name": "Guanabara",
                 "email": "bruna@email.com",
                 "password": "senha123",
                 "is_active": True
@@ -23,5 +23,5 @@ async def add_user():
     )
     
     print('DEU CERTOOOO')
-    
+    return user
     
