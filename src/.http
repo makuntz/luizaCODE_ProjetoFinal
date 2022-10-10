@@ -13,6 +13,9 @@ GET {{url}}
 @apiUser={{url}}/api/user
 POST {{apiUser}}
 
+###
+GET {{apiUser}}/bruna@email.com
+
 
 ###
 # URL base para a api de produtos
