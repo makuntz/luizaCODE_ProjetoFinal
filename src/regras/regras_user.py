@@ -8,7 +8,7 @@ from src.models.user import create_user
 COLECAO_USER = obter_colecao("users") 
 
 
-async def add_user():
+async def add_user(user):
     
     user = { 
                 "name": "Bruna",
