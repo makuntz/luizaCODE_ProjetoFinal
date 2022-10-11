@@ -14,7 +14,7 @@ GET {{url}}
 POST {{apiUser}}
 
 ###
-GET {{apiUser}}/@email.com
+GET {{apiUser}}/lyazinha@gmail.com
 
 ###
 GET {{apiUser}}
@@ -97,11 +97,10 @@ POST {{apiCart}}/554456
 
 ###
 @apiAddress={{url}}/api/address
-POST {{apiAddress}}/123456
+POST {{apiAddress}}/lyazinha@gmail.com
 
 ###
-GET {{apiAddress}}/mkprovida@gmail.com
+GET {{apiAddress}}/lyazinha@gmail.com
 
-###
-DELETE {{apiAddress}}/address_id 
+
 

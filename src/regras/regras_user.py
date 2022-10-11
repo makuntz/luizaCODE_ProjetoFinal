@@ -9,7 +9,7 @@ COLECAO_USER = obter_colecao("users")
 
 user = { 
                 "name": "lya",
-                "email": "amarelo@email.com",
+                "email": "lyazinha@gmail.com",
                 "password": "senha123",
                 "is_active": True
             }
@@ -26,8 +26,8 @@ def check(email):
 async def add_user():
     
     user = { 
-                "name": "cascão",
-                "email": "amarelo@gmail.com",
+                "name": "lya",
+                "email": "lyazinha@gmail.com",
                 "password": "senha123",
                 "is_active": True
             }
