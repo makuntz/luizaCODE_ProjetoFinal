@@ -8,7 +8,7 @@ async def create_user(user_collection, user):
         
         if user.inserted_id:
             user = await get_user(user_collection, user.inserted_id)
-    
+
         return user
 
     except Exception as e:
