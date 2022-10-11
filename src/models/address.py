@@ -31,7 +31,7 @@ async def create_address(address_collection, address, user):
 
 async def get_address(address_collection, address_email):
     try:
-        data = await address_collection.find_one({'email': address_email})
+        data = await address_collection.find_one({'user.email': address_email})
         if data:
             return data
     except Exception as e:

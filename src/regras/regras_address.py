@@ -1,9 +1,10 @@
 import email
+from manugr.luizaCODE_ProjetoFinal.src.models.address import get_user_by_email
 from src.models.persistencia_bd import obter_colecao
 
 
 COLECAO_ADDRESS = obter_colecao("addresses") 
-
+COLECAO_USER = obter_colecao("users")
 
 
 from src.models.address import (
@@ -15,13 +16,20 @@ from src.models.address import (
     get_address
    )
 
+async def get_user(email):
+    print(email)
+    response = await get_user_by_email(
+        COLECAO_USER,
+        email
+    )
+    print(response)
+    return response
+
 
 async def adding_address():
     
-    ##colocar as regras aqui
-    
-    ##user_found = COLECAO_USERS.find_one() -- usar esse user no create_address abaixo no lugar de user
-    
+    #colocar o user que foi buscado pelo email aqui embaixo
+     
     await create_address(
         COLECAO_ADDRESS,
         user = "123456",
@@ -43,16 +51,19 @@ async def adding_address():
     )
     
 
-async def search_address():
-    
-    address_email = 'fazer busca do user pelo email usando o find_one'
-    
+async def search_address(address_email):
+          
     address = await get_address(
         COLECAO_ADDRESS,
         address_email
     )
     print(address)
     
-
-async def deleting_address():
-    ...
+#pegar o address_id com a função search_address
+async def deleting_address(address_id):
+    
+    delete = await delete_address(
+        COLECAO_ADDRESS,
+        address_id
+    )
+    print('endereço deletado')
