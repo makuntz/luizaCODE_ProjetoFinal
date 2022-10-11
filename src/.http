@@ -86,14 +86,8 @@ PUT  {{apiProduto}}/634487b153fefae453ecc69c
 
 ###
 @apiCart={{url}}/api/cart
-POST {{apiCart}}/554456
+POST {{apiCart}}/lyazinha@gmail.com
 
- { 
-    "user": "123456",
-    "price": 111.22,
-    "paid": false
-   
-}
 
 ###
 @apiAddress={{url}}/api/address

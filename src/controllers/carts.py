@@ -11,9 +11,9 @@ rota_carts = APIRouter(
 
 
 ##acrescentar id_prod uto na rota, para verificar se produto existe
-@rota_carts.post("/{id_user}/{id_product}")
-async def cart_crud():
-    return await add_cart()
+@rota_carts.post("/email")
+async def cart_crud(email):
+    return await add_cart(email)
    
    
     
