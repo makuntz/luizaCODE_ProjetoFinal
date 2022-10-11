@@ -1,10 +1,11 @@
-# Carrinho luiza < CODE >
+# Projeto Final: luiza < CODE >
 
-## Atividade API - Carrinho de compra de roupas
+## Atividade API: Carrinho de compra - e commerce de roupas 
 
-Esse projeto contém a implementação do projeto final do luiza < CODE >. Trata de um sistema de carrinho de compras utililizando rotas, validações e banco de dados.
+Esse projeto contém a implementação do projeto final do luiza < CODE >. Trata de um sistema de uma API de carrinho de compras utililizando rotas, validações e banco de dados.
 
-## Requisitos e Ferramentas
+---
+## :hammer: Requisitos e Ferramentas:
 
 Esse projeto utiliza os seguintes:
 
@@ -13,7 +14,8 @@ Esse projeto utiliza os seguintes:
 
 Somente é necessário ter o Python3 pré instalado para a execução do projeto. Outras dependências são gerenciadas pelo gerenciador de pacotes.
 
-## Execução
+
+## :construction: Execução:
 
 Após instalar o Python3:
 
@@ -23,11 +25,15 @@ Após instalar o Python3:
 
    <b>Importante: </b> Certifique-se de estar clonando a branch main (master).
 
-2. Instale as dependências do projeto na pasta raíz:
+2. Ciração e ativação do ambiente virtual (Opcional):
+   `python -m venv venv`
+   `venv\Scripts\activate`
+
+3. Instale as dependências do projeto na pasta raíz:
 
    `pip install -r requirements.txt`
 
-3. Na pasta raíz rode o projeto, inicie a aplicação utilizando o comando:
+4. Na pasta raíz rode o projeto, inicie a aplicação utilizando o comando:
 
    `uvicorn main:app --reload`
 
@@ -35,7 +41,7 @@ Esse comando compila o projeto, iniciando o cliente em:
 
 > http://localhost:8000.
 
-## Funcionamento
+## ⚙️ Funcionamento:
 
 Ao acessar a URL
 
@@ -45,7 +51,7 @@ A primeira rota/pagina (página principal) é apenas as boas vindas do projeto. 
 
 `Seja bem vinda!`
 
-## Documentação Swagger
+## :page_facing_up: Documentação Swagger:
 
 Nessa etapa também é possível acessar a documentação Swagger através da URL:
 
@@ -53,7 +59,7 @@ Nessa etapa também é possível acessar a documentação Swagger através da UR
 
 Essa é uma documentação nativa da FastAPI. Para mais informações acesse a documentação a documentação [aqui](https://fastapi.tiangolo.com/tutorial/first-steps/#interactive-api-docs).
 
-## Divisão do Projeto
+## 💻 Divisão do Projeto:
 
 O projeto foi arquitetado em pastas, onde cada pasta possui arquivos com responsabilidades própria.
 A divisão de pastas foi feita da seguinte forma:
@@ -72,7 +78,7 @@ Já a divisão das responsabilidades são:
 - <b>Products: Marcella</b>
 - <b>Carts: Maíra e Lya</b>
 
-## Rotas e endpoints
+## :globe_with_meridians: Rotas e endpoints:
 
 Os endpoints disponíveis são:
 
@@ -82,7 +88,9 @@ Os endpoints disponíveis são:
 
 2. Users
 
--
+- POST/api/user --> cria um novo usuário
+
+- GET/api/user/{email} --> faz busca de um usuário pelo email cadastrado
 
 3. Address
 
@@ -92,3 +100,53 @@ Os endpoints disponíveis são:
 4. Cart
 
 - POST api/cart/{id_user}/{id_product} --> adicionar um carrinho passando um usuario e um produto como pamâmetro
+
+
+## :rocket: Desenvolvedoras: 
+
+<table>
+    <tr align="center">
+       <td>
+            <a href="https://github.com/catiuu" target="_blank">
+              <img src="https://avatars.githubusercontent.com/u/85588757?v=4" height="150px">
+            </a>
+        </td>
+        <td>
+          <a href="https://github.com/lyacarolina" target="_blank">
+            <img src="https://avatars.githubusercontent.com/u/38046847?v=4" height="150px">
+          </a>
+        </td>
+        <td>
+            <a href="https://github.com/makuntz" target="_blank">
+              <img src="https://avatars.githubusercontent.com/u/75498529?v=4" height="150px">
+            </a>
+        </td>
+        <td>
+            <a href="https://github.com/manuelaagr" target="_blank">
+              <img src="https://avatars.githubusercontent.com/u/112256271?v=4" height="150px">
+            </a>
+        </td>
+         <td>
+            <a href="https://github.com/MarcellaMenezes" target="_blank">
+              <img src="https://avatars.githubusercontent.com/u/49349873?v=4" height="150px">
+            </a>
+        </td>
+    </tr>
+    <tr align="center">
+        <td>
+        <a href="https://github.com/catiuu" target="_blank">Catiussia Nascimento</a>
+        </td>
+        <td>
+        <a href="https://github.com/lyacarolina" target="_blank">Lya Carolina</a>
+        </td>
+        <td>
+        <a href="https://github.com/makuntz" target="_blank">Maíra Kuntz</a>
+        </td>
+         <td>
+        <a href="https://github.com/manuelaagr" target="_blank">Manuela Rocha</a>
+        </td>
+        <td>
+        <a href="https://github.com/MarcellaMenezes" target="_blank">Marcella Menezes</a>
+        </td>
+    </tr>
+</table>
