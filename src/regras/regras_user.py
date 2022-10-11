@@ -2,7 +2,7 @@
 from src.models.persistencia_bd import obter_colecao
 from bson.objectid import ObjectId
 import datetime
-from src.models.user import create_user, get_user_by_email
+from src.models.user import create_user, get_user_by_email, if_user_exists
 import re
 
 
@@ -28,36 +28,47 @@ def check(email):
         print("Email inválido")
         return False  
         
-    
-
 
 async def add_user():
-    
-    
     
    
     user = { 
                 "name": "cascão",
-                "email": "cascao@gmail.com",
+                "email": "amarelo@gmail.com",
                 "password": "senha123",
                 "is_active": True
             }
     
     validate_email = check(user["email"])
     
-    if validate_email == True:
+    length = user["email"].split('@')
+    print(length[0])
     
-        await create_user(
-            COLECAO_USER,
-            dict(user)
-            )
-
-        print('DEU CERTOOOO')
-        return user
-    else:
-        print("Falhou!")
+    if len(length[0]) >= 3:
+        #print(user["email"])
+        #return "Deu bom"
         
+        if validate_email == True:
+            print(COLECAO_USER)
+            
+            user_exist = await if_user_exists(user["email"], COLECAO_USER)
+            
+            if user_exist == True:
+                return "Email já cadastrado"
+            
+            await create_user(
+                COLECAO_USER,
+                dict(user)
+                )
 
+            print('DEU CERTOOOO')
+            return user
+        else:
+            print("Falhou!")
+    else:
+        return "Deu ruim"
+         
+    
 async def get_user(email):
     # email = "bruna@email.com"
     print(email)
@@ -68,6 +79,10 @@ async def get_user(email):
     print(response)
     return response
 
+async def get_everybody():
+    if_user_exists(
+        COLECAO_USER
+    )
 
 # async def delete_user():
 #     await

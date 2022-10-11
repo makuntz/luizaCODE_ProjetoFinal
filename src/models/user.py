@@ -1,3 +1,4 @@
+
 from src.schemas.user import UserSchema
 
 
@@ -32,6 +33,32 @@ async def get_user_by_email(user_collection, email):
     except Exception as e:
         print(f'find_user_by_email.error: {e}')
     
+
+async def if_user_exists(email, user_collection):
+    
+     
+    user = await user_collection.find_one({'email': email})
+    if user:
+        return True
+    return False
+    
+
+
+
+
+   
+
+# async def if_user_exists(user_collection, limit, skip):
+#     try:
+#         user =  user_collection.find({'_id': 0}).skip(int(skip)).limit(int(limit))
+#         users = await user.to_list(length=int(limit))
+#         print(users)
+        
+#         if user:
+#             return user
+#     except Exception as e:
+#         print(f'if_user_exists.error: {e}')
+
 
 
 # async def delete_user(user_collection, user_id):

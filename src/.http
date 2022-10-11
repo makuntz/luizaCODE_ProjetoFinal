@@ -16,6 +16,8 @@ POST {{apiUser}}
 ###
 GET {{apiUser}}/@email.com
 
+###
+GET {{apiUser}}
 
 ###
 # URL base para a api de produtos
