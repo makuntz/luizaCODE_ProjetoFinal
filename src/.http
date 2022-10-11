@@ -88,6 +88,9 @@ PUT  {{apiProduto}}/634487b153fefae453ecc69c
 @apiCart={{url}}/api/cart
 POST {{apiCart}}/lyazinha@gmail.com
 
+###
+PUT {{apiCart}}/product/lyazinha@gmail.com/2
+
 
 ###
 @apiAddress={{url}}/api/address
@@ -95,6 +98,9 @@ POST {{apiAddress}}/lyazinha@gmail.com
 
 ###
 GET {{apiAddress}}/lyazinha@gmail.com
+
+
+
 
 
 
