@@ -1,5 +1,5 @@
 import email
-from manugr.luizaCODE_ProjetoFinal.src.models.address import get_user_by_email
+from models.address import get_user_by_email
 from src.models.persistencia_bd import obter_colecao
 
 
@@ -9,22 +9,10 @@ COLECAO_USER = obter_colecao("users")
 
 from src.models.address import (
     create_address,
-    get_address_id_user,
     update_address,
     delete_address,
-    add_address,
     get_address
    )
-
-async def get_user(email):
-    print(email)
-    response = await get_user_by_email(
-        COLECAO_USER,
-        email
-    )
-    print(response)
-    return response
-
 
 async def adding_address():
     
