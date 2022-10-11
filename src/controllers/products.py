@@ -7,10 +7,10 @@ from src.models.product import (
     get_all_products,
     delete_product_by_id,
     get_product_by_name,
-    update_produto_by_id
+    update_product_by_id
 )
 
-from src.schemas.product import  ProductSchema
+from src.schemas.product import  ProductUpdatedSchema, ProductSchema
 
 from src.models.persistencia_bd import obter_colecao
 
@@ -30,7 +30,7 @@ rota_produtos = APIRouter(
 
 # Criando produto
 @rota_produtos.post("/")
-async def criar_produto(produto: dict):
+async def criar_produto(produto: ProductSchema):
     print(produto)
     return await create_product(COLECAO_PRODUTO, produto)
 
@@ -55,9 +55,9 @@ async def deletar_produto(id_produto: str):
    return await delete_product_by_id(COLECAO_PRODUTO, id_produto)
 
 @rota_produtos.put("/{id_produto}")
-async def atualizar_produto(id_produto: str, produto:dict):
+async def atualizar_produto(id_produto: str, produto: ProductUpdatedSchema):
     print("atualizar produto", id_produto, "|", produto)
-    return await update_produto_by_id(COLECAO_PRODUTO, id_produto, produto)
+    return await update_product_by_id(COLECAO_PRODUTO, id_produto, produto)
 
     
 # Deletando um produto do carrinho 

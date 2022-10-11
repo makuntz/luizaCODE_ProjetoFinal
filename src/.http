@@ -22,16 +22,17 @@ GET {{url}}
 POST {{apiProduto}}
 
 {
-    "name": "Saia preta da Shein",
+    "code": 2,
+    "name": "Blusa de gola v ",
     "size": "M",
-    "decription": "Saia de courinho preto",
+    "description": "Blusa de gola v 10% Poliester e 90% algodão",
     "price": 50.00,
-    "type": "saia",
+    "image": "",
+    "type": "blusa",
     "category": "feminina",
-    "trademark": "Shein",
-    "color": "preto"
+    "trademark": "Marisa",
+    "color": "branca"   
 }
-
 ###
 #Buscando produtos
 GET {{apiProduto}}
@@ -39,32 +40,25 @@ content-type: application/json
 
 ###
 #Buscando produto por id
-GET {{apiProduto}}/634344e5bec29954781dac6c/
+GET {{apiProduto}}/6344888b165baba19a0f01e4/
 content-type: application/json
 
 ###
 #Buscando produto pelo nome
-GET {{apiProduto}}/name/ade
+GET {{apiProduto}}/name/gola
 content-type: application/json
 
 ###
 #Deletando produto por id
-DELETE  {{apiProduto}}/6342df86e7e1820dd03c39bf/
+DELETE  {{apiProduto}}/6344873b918713b75de27029/
 content-type: application/json
 
 ###
-# Atualizar todos os dados da música pelo código
-PUT {{apiProduto}}/634344e5bec29954781dac6c
+# Atualizar todos os dados do produto pelo id
+PUT  {{apiProduto}}/6344888b165baba19a0f01e4
 
 {
-    "name": "Saia preta da Shein ",
-    "size": "M",
-    "decription": "Saia de courinho preto",
-    "price": 50.00,
-    "type": "saia",
-    "category": "feminina",
-    "trademark": "Shein",
-    "color": "preto"   
+    "name": "Saia"
 }
 
 ###
