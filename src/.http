@@ -10,6 +10,16 @@
 GET {{url}}
 
 ###
+@apiUser={{url}}/api/user
+POST {{apiUser}}
+
+###
+GET {{apiUser}}/@email.com
+
+###
+GET {{apiUser}}
+
+###
 # URL base para a api de produtos
 @apiProduto={{url}}/api/products
 
@@ -91,5 +101,4 @@ POST {{apiAddress}}/123456
 
 ###
 GET {{apiAddress}}/mkprovida@gmail.com
-
 
