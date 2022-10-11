@@ -10,24 +10,47 @@
 GET {{url}}
 
 ###
+@apiUser={{url}}/api/user
+POST {{apiUser}}
+
+###
+GET {{apiUser}}/@email.com
+
+###
+GET {{apiUser}}
+
+###
 # URL base para a api de produtos
 @apiProduto={{url}}/api/products
+
 
 ###
 # Cadastra/salva um novo produto
 POST {{apiProduto}}
 
 {
-    "name": "Saia preta da Shein",
-    "size": "M",
-    "decription": "Saia de courinho preto",
-    "price": 50.00,
-    "type": "saia",
-    "category": "feminina",
-    "trademark": "Shein",
-    "color": "preto"
+    "code": 1,
+    "name": "cs",
+    "description": "Blusa de gola v 10% Poliester e 90% algodão",
+    "price": 0.1
 }
 
+###
+# Cadastra/salva um novo produto
+POST {{apiProduto}}
+
+{
+    "code": 2,
+    "name": "Blusa de gola v ",
+    "size": "M",
+    "description": "Blusa de gola v 10% Poliester e 90% algodão",
+    "price": 50.00,
+    "image": "",
+    "type": "blusa",
+    "category": "feminina",
+    "trademark": "Marisa",
+    "color": "branca"   
+}
 ###
 #Buscando produtos
 GET {{apiProduto}}
@@ -35,18 +58,42 @@ content-type: application/json
 
 ###
 #Buscando produto por id
-GET {{apiProduto}}/6342df86e7e1820dd03c39be
+GET {{apiProduto}}/6344b4d807b7878a94f2675d/
+content-type: application/json
+
+###
+#Buscando produto pelo código
+GET {{apiProduto}}/code/1/
+content-type: application/json
+
+###
+#Buscando produto pelo nome
+GET {{apiProduto}}/name/gola
 content-type: application/json
 
 ###
 #Deletando produto por id
-DELETE  {{apiProduto}}/6342df86e7e1820dd03c39be
+DELETE  {{apiProduto}}/6344b4d807b7878a94f2675d/
 content-type: application/json
 
 ###
-@apiCart={{url}}/api/cart
-POST {{apiCart}}/123456/554456
+# Atualizar todos ou um dados do produto pelo id
+PUT  {{apiProduto}}/634487b153fefae453ecc69c
 
+{
+    "size": "G"
+}
+
+###
+@apiCart={{url}}/api/cart
+POST {{apiCart}}/554456
+
+ { 
+    "user": "123456",
+    "price": 111.22,
+    "paid": false
+   
+}
 
 ###
 @apiAddress={{url}}/api/address
