@@ -1,6 +1,6 @@
 import email
-from manugr.luizaCODE_ProjetoFinal.src.schemas.address import Address
-from manugr.luizaCODE_ProjetoFinal.src.schemas.user import UserSchema
+from src.schemas.address import Address
+from src.schemas.user import UserSchema
 from models.address import get_user_by_email
 from src.models.persistencia_bd import obter_colecao
 
