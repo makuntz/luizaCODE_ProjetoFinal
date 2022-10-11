@@ -17,6 +17,18 @@ GET {{url}}
 # URL base para a api de produtos
 @apiProduto={{url}}/api/products
 
+
+###
+# Cadastra/salva um novo produto
+POST {{apiProduto}}
+
+{
+    "code": 1,
+    "name": "cs",
+    "description": "Blusa de gola v 10% Poliester e 90% algodão",
+    "price": 0.1
+}
+
 ###
 # Cadastra/salva um novo produto
 POST {{apiProduto}}
@@ -40,7 +52,12 @@ content-type: application/json
 
 ###
 #Buscando produto por id
-GET {{apiProduto}}/6344888b165baba19a0f01e4/
+GET {{apiProduto}}/6344b4d807b7878a94f2675d/
+content-type: application/json
+
+###
+#Buscando produto pelo código
+GET {{apiProduto}}/code/1/
 content-type: application/json
 
 ###
@@ -50,15 +67,15 @@ content-type: application/json
 
 ###
 #Deletando produto por id
-DELETE  {{apiProduto}}/6344873b918713b75de27029/
+DELETE  {{apiProduto}}/6344b4d807b7878a94f2675d/
 content-type: application/json
 
 ###
-# Atualizar todos os dados do produto pelo id
-PUT  {{apiProduto}}/6344888b165baba19a0f01e4
+# Atualizar todos ou um dados do produto pelo id
+PUT  {{apiProduto}}/634487b153fefae453ecc69c
 
 {
-    "name": "Saia"
+    "size": "G"
 }
 
 ###

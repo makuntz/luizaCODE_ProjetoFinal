@@ -4,6 +4,7 @@ from fastapi import APIRouter
 from src.models.product import (
     create_product,
     get_product_by_id,
+    get_product_by_code,
     get_all_products,
     delete_product_by_id,
     get_product_by_name,
@@ -31,28 +32,38 @@ rota_produtos = APIRouter(
 # Criando produto
 @rota_produtos.post("/")
 async def criar_produto(produto: ProductSchema):
-    print(produto)
+    print(f"Produto: {produto}")
     return await create_product(COLECAO_PRODUTO, produto)
 
 # Retornando todos os produtos
 @rota_produtos.get("/")
 async def retornar_produtos():
+    print('retornar todos os produtos')
     return await get_all_products(COLECAO_PRODUTO)
 
 # Retornando um produto pelo id
 @rota_produtos.get("/{id_produto}/")
 async def retornar_produto(id_produto: str):
+    print(f"retornar o produto de id: {id_produto}")
     return await get_product_by_id(COLECAO_PRODUTO, id_produto)
+
+# Retornando um produto pelo codigo
+@rota_produtos.get("/code/{code}/")
+async def retornar_produto_por_codigo(code: int):
+    print(f"retornar o produto de codigo: {code}")
+    return await get_product_by_code(COLECAO_PRODUTO, code)
 
 # Retornando um produto pelo nome
 @rota_produtos.get("/name/{nome}/")
 async def retornar_produto_pelo_nome(nome: str):
+    print(f"retornar produtos que contenham a string: {nome}")
     return await get_product_by_name(COLECAO_PRODUTO, nome)
 
 # Deletando um produto pelo seu id
 @rota_produtos.delete("/{id_produto}/")
 async def deletar_produto(id_produto: str):
-   return await delete_product_by_id(COLECAO_PRODUTO, id_produto)
+    print(f"deletar produto de id:{id_produto}")
+    return await delete_product_by_id(COLECAO_PRODUTO, id_produto)
 
 @rota_produtos.put("/{id_produto}")
 async def atualizar_produto(id_produto: str, produto: ProductUpdatedSchema):

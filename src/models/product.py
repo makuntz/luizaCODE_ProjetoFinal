@@ -5,16 +5,25 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+async def regra_cad_product(product_collection, product_code):
+    product = await get_product_by_code(product_collection, product_code)
+    if "code" in product:
+        if product["code"] == product_code:
+            return True
+
 async def create_product(product_collection, product):
     try: 
         product = dict(product)
-        print(product)
-        answer = await product_collection.insert_one(product)
+        response = await regra_cad_product(product_collection, (product["code"]))
+        if response:
+                return {'status': 'product already exists'}
+        else:
+            answer = await product_collection.insert_one(product)
         
-        if answer.inserted_id:
-            id = str(answer.inserted_id)
-            return {'status': 'product inserted', '_id':id, "status_code": status.HTTP_200_OK}
-        return {}
+            if answer.inserted_id:
+                id = str(answer.inserted_id)
+                return {'status': 'product inserted', '_id':id, "status_code": status.HTTP_200_OK}
+            return {}
         
     except Exception as e:
        logger.exception(f'create_product.error: {e}')
@@ -34,6 +43,20 @@ async def get_product_by_id(product_collection, product_id):
         logger.exception(f'get_product.error: {e}')
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST)
         
+async def get_product_by_code(product_collection, product_code):
+    try:
+        filtro = {'code': product_code}
+        product = await product_collection.find_one(filtro)
+        
+        if product:
+            product['_id'] = str(product['_id'])
+            return product
+        return {'status': 'product not found', "status_code": status.HTTP_200_OK}
+        
+    except Exception as e:
+        logger.exception(f'get_product.error: {e}')
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST)
+       
 
 async def get_product_by_name(product_collection, product_name):
     try:
