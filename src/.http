@@ -55,3 +55,6 @@ POST {{apiAddress}}/123456
 ###
 GET {{apiAddress}}/mkprovida@gmail.com
 
+###
+DELETE {{apiAddress}}/address_id 
+

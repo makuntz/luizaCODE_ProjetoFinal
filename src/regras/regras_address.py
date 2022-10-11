@@ -33,14 +33,14 @@ async def creating_address(address_data:Address, user:UserSchema):
     
     #colocar o user que foi buscado pelo email aqui embaixo
      
-    await create_address(
+    address = await create_address(
         COLECAO_ADDRESS,
         user =  {
             "name": "lya",
             "email": "amarelo@email.com",
             "password": "senha123",
             "is_active": True,
-        }
+        },
         address_data={
             "street": "Rua Setenta e três, Numero 20",
             "cep": "7451263",
@@ -48,7 +48,8 @@ async def creating_address(address_data:Address, user:UserSchema):
             "state": "São Paulo",
             "is_delivery": True
         }, 
-    )        
+    )
+    print(address)
     
     
 #fazer o update do endereço
