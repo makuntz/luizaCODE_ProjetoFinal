@@ -32,13 +32,13 @@ async def create_address(address_collection, address_data:Address, user:UserSche
         
 
 #criar endereço quando já existe um endereço vinculado ao usuario
-async def update_address(address_collection, email, address_data):
+async def update_address(address_collection, address_email, address_data):
     try:
         data = {k: v for k, v in address_data.items() if v is not None}
 
         address = await address_collection.update_one(
 
-            {'user.email': email}, 
+            {'user.email': address_email}, 
             {'$addToSet': {'address': data}}
 
         )
