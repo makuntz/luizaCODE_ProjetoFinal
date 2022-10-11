@@ -1,7 +1,3 @@
-### ************************************
-# API das músicas
-#
-
 ###
 # URL
 @url=http://localhost:8000
@@ -80,7 +76,7 @@ PUT  {{apiProduto}}/634487b153fefae453ecc69c
 
 ###
 @apiCart={{url}}/api/cart
-POST {{apiCart}}/123456
+POST {{apiCart}}/554456
 
  { 
     "user": "123456",
@@ -88,3 +84,12 @@ POST {{apiCart}}/123456
     "paid": false
    
 }
+
+###
+@apiAddress={{url}}/api/address
+POST {{apiAddress}}/123456
+
+###
+GET {{apiAddress}}/mkprovida@gmail.com
+
+

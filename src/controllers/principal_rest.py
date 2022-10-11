@@ -17,4 +17,4 @@ rota_principal = APIRouter(
     description="Rota principal em que se diz um '`Oi`'.",
     )
 async def dizer_ola():
-    return "Oi"
+    return "Seja Bem Vinda!"
