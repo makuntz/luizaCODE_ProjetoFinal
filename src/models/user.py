@@ -2,7 +2,7 @@
 from src.schemas.user import UserSchema
 
 
-async def create_user(user_collection, user):
+async def create_user(user_collection, user: UserSchema):
     try:
         user = await user_collection.insert_one(user)
         

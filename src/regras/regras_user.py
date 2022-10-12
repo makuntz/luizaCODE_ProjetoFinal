@@ -5,6 +5,8 @@ import datetime
 from src.models.user import create_user, get_user_by_email, if_user_exists
 import re
 
+from src.regras.regras_cart import add_cart
+
 
 COLECAO_USER = obter_colecao("users") 
 regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
@@ -60,6 +62,7 @@ async def add_user():
                 COLECAO_USER,
                 dict(user)
                 )
+            
 
             print('DEU CERTOOOO')
             return user

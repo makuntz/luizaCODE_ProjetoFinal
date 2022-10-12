@@ -90,7 +90,7 @@ POST {{apiCart}}/lyazinha@gmail.com
 
 ###
 POST {{apiCart}}/lyazinha@gmail.com/2
-content-type: application/json
+
 
 ###
 @apiAddress={{url}}/api/address

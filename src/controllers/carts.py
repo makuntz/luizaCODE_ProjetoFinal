@@ -18,6 +18,8 @@ async def cart_crud(email):
 @rota_carts.post("/{email}/{product_code}")
 async def add_product_cart(email, product_code):
         return await insert_product(email, product_code)
+    
+
    
    
     
