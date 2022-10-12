@@ -40,7 +40,7 @@ async def update_cart(cart_collection, cart, produto):
     try:
         cart = await cart_collection.update_one(
             {'address.user.email': cart["address"]["user"]["email"]},
-            {"$addToSet": {"product": produto}}
+            {"$push": {"product": produto}}
         )
         
         if cart:
@@ -49,14 +49,3 @@ async def update_cart(cart_collection, cart, produto):
         print(f'update_cart.error: {e}')
         
 
-# async def update_cart_item(cart_collection, cart, item):
-#     try:
-#         cart = await cart_collection.update_one(
-#             {'address.user.email': cart["address"]["user"]["email"]},
-#             {"$addToSet": {"item": produto}}
-#         )
-        
-#         if cart:
-#             return cart
-#     except Exception as e:
-#         print(f'update_cart.error: {e}')

@@ -10,19 +10,38 @@
 GET {{url}}
 
 ###
+# URL básica para api de usuarios
 @apiUser={{url}}/api/user
+
+# Cadastra/salva usuário
 POST {{apiUser}}
 
 ###
+# Buscando usuario pelo email
 GET {{apiUser}}/lyazinha@gmail.com
 
 ###
+# Faz busca todos os usuários
 GET {{apiUser}}
+
+
+###
+# URL basica para api de endereco
+@apiAddress={{url}}/api/address
+
+###
+# Criando endereco e associando ao usuario atraves do email
+POST {{apiAddress}}/lyazinha@gmail.com
+
+###
+# Buscando endereço pelo email 
+GET {{apiAddress}}/lyazinha@gmail.com
+
+
 
 ###
 # URL base para a api de produtos
 @apiProduto={{url}}/api/products
-
 
 ###
 # Cadastra/salva um novo produto
@@ -51,6 +70,7 @@ POST {{apiProduto}}
     "trademark": "Marisa",
     "color": "branca"   
 }
+
 ###
 #Buscando produtos
 GET {{apiProduto}}
@@ -84,24 +104,19 @@ PUT  {{apiProduto}}/634487b153fefae453ecc69c
     "size": "G"
 }
 
+
+
+
+# URL basica para api do carrinho
 ###
 @apiCart={{url}}/api/cart
+
+###
+# Criando/salvando um carrinho
 POST {{apiCart}}/lyazinha@gmail.com
 
 ###
-POST {{apiCart}}/lyazinha@gmail.com/2
-
-
-
-###
-@apiAddress={{url}}/api/address
-POST {{apiAddress}}/lyazinha@gmail.com
-
-###
-GET {{apiAddress}}/lyazinha@gmail.com
-
-
-
-
+# Inserindo produto no carrinho pelo código do produto
+PUT {{apiCart}}/lyazinha@gmail.com/3
 
 

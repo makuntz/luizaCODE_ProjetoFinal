@@ -51,7 +51,7 @@ async def insert_product(email, product_code):
     teste = int(product_code)
     product_recieve = await COLECAO_PRODUCTS.find_one({"code": teste})
    
-    result = await update_cart(
+    await update_cart(
         COLECAO_CART,
         cart_recieve,
         product_recieve
@@ -63,15 +63,28 @@ async def insert_product(email, product_code):
         email
     )
     
-    x = cart_recieve_two["product"]
-    y = len(x)
+    if cart_recieve_two is not None:
+        x = cart_recieve_two["product"]
+        y = len(x)
+
+        await COLECAO_CART.update_one(
+            {'address.user.email': email},
+            {"$set": {"items": y}}
+        )
+    else:
+        print("Error")
     
-    testing = await COLECAO_CART.update_one(
-        {'address.user.email': email},
-        {"$set": {"items": y}}
-    )
     
-    print(testing)
+    sum = 0
+    for prod in x:
+        sum = sum + prod["price"]
+    print (sum)
+    
+    await COLECAO_CART.update_one(
+            {'address.user.email': email},
+            {"$set": {"total_price": sum}}
+        )
+    
     
     return "Ok"
     

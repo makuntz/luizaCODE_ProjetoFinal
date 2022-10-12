@@ -33,12 +33,11 @@ def check(email):
 
 async def add_user():
     
-   
     user = { 
-                "name": "cascão",
-                "email": "amarelo@gmail.com",
-                "password": "senha123",
-                "is_active": True
+            "name": "cascão",
+            "email": "amarelo@gmail.com",
+            "password": "senha123",
+            "is_active": True
             }
     
     validate_email = check(user["email"])
