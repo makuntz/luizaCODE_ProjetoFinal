@@ -4,11 +4,10 @@ from src.schemas.cart import CartSchema
 async def create_cart(cart_collection, cart):
     try:
         cart = await cart_collection.insert_one(cart)
-        print("oi luan")
-        
+                
         if cart.inserted_id:
             cart = await get_cart(cart_collection, cart.inserted_id)
-            print("tchau luan")
+            
         return cart
 
     except Exception as e:

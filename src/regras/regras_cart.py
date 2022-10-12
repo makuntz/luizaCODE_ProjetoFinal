@@ -1,10 +1,9 @@
 
 from src.models.address import get_address
 from src.models.persistencia_bd import obter_colecao
-from bson.objectid import ObjectId
 import datetime
 from src.models.cart import create_cart, get_cart_by_email, update_cart
-from src.models.product import get_product_by_code
+from src.models.user import if_user_exists
 
 COLECAO_CART = obter_colecao("carts") 
 COLECAO_USER = obter_colecao("users") 
@@ -21,7 +20,7 @@ async def add_cart(email):
             COLECAO_ADDRESS,
             email
         )
-        
+        print(user)
     
         cart = { 
                     "address": user,
@@ -29,16 +28,23 @@ async def add_cart(email):
                     "product": [],
                     "items": []
                 }
-    
-       
-        await create_cart(
-            COLECAO_CART,
-            dict(cart)
+        
+        user_exist = await if_user_exists(
+            email,
+            COLECAO_USER
+               
         )
+        
+        if user_exist == True:
+            await create_cart(
+                COLECAO_CART,
+                dict(cart)
+            )
+            return "Carrinho criado com sucesso!"
+        else:
+            return "Usuario nao cadastrado!"
          
-        return "criado"
- 
- 
+
  
  
 async def insert_product(email, product_code):

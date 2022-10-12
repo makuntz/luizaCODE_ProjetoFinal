@@ -117,6 +117,6 @@ POST {{apiCart}}/lyazinha@gmail.com
 
 ###
 # Inserindo produto no carrinho pelo código do produto
-PUT {{apiCart}}/lyazinha@gmail.com/3
+PUT {{apiCart}}/lyazinha@gmail.com/2
 
 
