@@ -1,8 +1,9 @@
 
+from urllib import response
 from src.models.persistencia_bd import obter_colecao
 from bson.objectid import ObjectId
 import datetime
-from src.models.user import create_user, get_user_by_email, if_user_exists
+from src.models.user import create_user, get_user_by_email, if_user_exists, get_all_users
 import re
 
 from src.regras.regras_cart import add_cart
@@ -10,16 +11,6 @@ from src.regras.regras_cart import add_cart
 
 COLECAO_USER = obter_colecao("users") 
 regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
-
-
-user = { 
-                "name": "lya",
-                "email": "amarelo@email.com",
-                "password": "senha123",
-                "is_active": True
-            }
-
-
 
 def check(email):
     if(re.search(regex,email)):
@@ -31,15 +22,8 @@ def check(email):
         return False  
         
 
-async def add_user():
-    
-    user = { 
-            "name": "cascão",
-            "email": "amarelo@gmail.com",
-            "password": "senha123",
-            "is_active": True
-            }
-    
+async def add_user(user):
+    user = dict(user)
     validate_email = check(user["email"])
     
     length = user["email"].split('@')
@@ -82,10 +66,12 @@ async def get_user(email):
     return response
 
 async def get_everybody():
-    if_user_exists(
+    response = await get_all_users(
         COLECAO_USER
     )
-
+    print(response)
+    return response
+    
 # async def delete_user():
 #     await
 

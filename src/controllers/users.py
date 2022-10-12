@@ -10,8 +10,8 @@ rota_user = APIRouter(
 
 
 @rota_user.post("/")
-async def create_user():
-    return await add_user()
+async def create_user(user: UserSchema):
+    return await add_user(user)
 
 
 @rota_user.get("/{email}")
