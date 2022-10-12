@@ -1,21 +1,21 @@
 # Projeto Final: luiza < CODE >
 
-## Atividade API: Carrinho de compra - e commerce de roupas 
+## Atividade API: Carrinho de compras - e commerce de roupas 
 
 Esse projeto contém a implementação do projeto final do luiza < CODE >. Trata de um sistema de uma API de carrinho de compras utililizando rotas, validações e banco de dados.
 
 ---
-## :hammer: Requisitos e Ferramentas:
-
-Esse projeto utiliza os seguintes:
+## 🛠 Requisitos e Ferramentas:
 
     .Python3
     .MongoDB
+    .FastAPI
+    .Uvicorn
 
 Somente é necessário ter o Python3 pré instalado para a execução do projeto. Outras dependências são gerenciadas pelo gerenciador de pacotes.
 
 
-## :construction: Execução:
+## :construction: Instalação e execução:
 
 Após instalar o Python3:
 
@@ -78,28 +78,101 @@ Já a divisão das responsabilidades são:
 - <b>Products: Marcella</b>
 - <b>Carts: Maíra e Lya</b>
 
+## :memo: Regras de negócio:
+
+### O que será possivel fazer:
+ - [x] Cadastro de usuário
+ - [x] Cadastro de endereço
+ - [x] Pesqisar um cliente por email
+ - [x] Pesquisar um endereço por email
+ - [x] Cadastrar um produto
+ - [x] Atualizar os dados de um produto pelo código
+ - [x] Pesquisar um produto pelo código
+ - [x] Pesquisar um produto pelo nome
+ - [x]
+
+### O que não será possível fazer:
+- Remover um cliente
+- Remover um endereço 
+- Remover um produto
+- Consultar os carrinhos fechados de um cliente
+- Consultar os produtos e suas quantidades em carrinhos fechados
+- Consultar quantos carrinhos fechados os clientes possuem 
+- Excluir carrinho do cliente
+
+
 ## :globe_with_meridians: Rotas e endpoints:
 
 Os endpoints disponíveis são:
 
-1. Home
+### Home
 
-- GET / --> pagina inicial
+##### GET "/" 
+Retorna a página inicial.
+Dados retornados:
+- Página inicial
 
-2. Users
+### Users
 
-- POST/api/user --> cria um novo usuário
+##### POST "/api/user" 
+Cadastra um novo usuário:
+Dados enviados:
 
-- GET/api/user/{email} --> faz busca de um usuário pelo email cadastrado
+- nome do usuário
+- email 
+- senha 
+- usuário ativo
 
-3. Address
+Dados retornados:
+- Sucesso/ Erro 
 
-- POST api/address/{id_user} --> adiciona um novo endereço ao usuário
-- GET api/address/{email} --> faz busca do endereço através do email que for passado como parâmetro
+##### GET "/api/user/{email}" 
+Busca um usuário pelo email passado como parâmetro.
+Dados enviados:
+ - email
 
-4. Cart
+Dados retornados:
+- Usuário:
+  * Id
+  * Nome
+  * Email
 
-- POST api/cart/{id_user}/{id_product} --> adicionar um carrinho passando um usuario e um produto como pamâmetro
+### Address
+
+##### POST "api/address/{id_user}"
+Adiciona um novo endereço ao usuário.
+Dados enviados:
+- Id do usuário 
+- Nome da rua 
+- CEP
+- Cidade
+- Estado 
+- Opção de entrega 
+
+Dados retornados:
+- Sucesso/ Erro
+
+##### GET "api/address/{email}" 
+Faz busca do endereço através do email que for passado como parâmetro.
+Dados enviados:
+- Email
+
+Dados retornados:
+- Endereço:
+  * Nome da rua 
+  * CEP
+  * Cidade
+  * Estado 
+
+
+## Cart
+##### POST "api/cart/{id_user}/{id_product}" 
+Adicionar um carrinho passando um usuario e um produto como pamâmetro
+Dados enviados:
+- Id do usuário
+- Id do produto
+
+Dados retornados:
 
 
 ## :rocket: Desenvolvedoras: 
