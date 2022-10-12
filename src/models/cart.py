@@ -15,6 +15,7 @@ async def create_cart(cart_collection, cart):
         print(f'create_cart.error: {e}')
 
 async def get_cart(cart_collection, email):
+    
     try:
         data = await cart_collection.find_one({'email': email})
         if data:
@@ -25,6 +26,7 @@ async def get_cart(cart_collection, email):
 
 
 async def get_cart_by_email(cart_collection, email):
+    
     try:
         data = await cart_collection.find_one({'address.user.email': email}, {'_id': 0})
         if data:
@@ -38,10 +40,23 @@ async def update_cart(cart_collection, cart, produto):
     try:
         cart = await cart_collection.update_one(
             {'address.user.email': cart["address"]["user"]["email"]},
-            {"$addToSet": {"produto": produto}}
+            {"$addToSet": {"product": produto}}
         )
         
         if cart:
             return cart
     except Exception as e:
         print(f'update_cart.error: {e}')
+        
+
+# async def update_cart_item(cart_collection, cart, item):
+#     try:
+#         cart = await cart_collection.update_one(
+#             {'address.user.email': cart["address"]["user"]["email"]},
+#             {"$addToSet": {"item": produto}}
+#         )
+        
+#         if cart:
+#             return cart
+#     except Exception as e:
+#         print(f'update_cart.error: {e}')
