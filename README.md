@@ -92,6 +92,8 @@ Já a divisão das responsabilidades são:
  - [x] Atualizar os dados de um produto pelo código
  - [x] Pesquisar um produto pelo código
  - [x] Pesquisar um produto pelo nome
+ - [x] Criar um carrinho de compras e adicionar itens ao carrinho.
+
 
 ### O que não será possível fazer:
 - Remover um cliente
