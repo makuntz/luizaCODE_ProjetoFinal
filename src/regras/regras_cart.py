@@ -2,7 +2,7 @@
 from src.models.address import get_address
 from src.models.persistencia_bd import obter_colecao
 import datetime
-from src.models.cart import create_cart, get_cart_by_email, update_cart
+from src.models.cart import create_cart, get_cart_by_email, if_product_exists, update_cart
 from src.models.user import if_user_exists
 
 COLECAO_CART = obter_colecao("carts") 
@@ -14,7 +14,6 @@ COLECAO_PRODUCTS = obter_colecao("products")
 async def add_cart(email):
         cart_found = await get_cart_by_email(COLECAO_CART, email)
         
-        print(cart_found)
         
         user = await get_address(
             COLECAO_ADDRESS,
@@ -29,10 +28,16 @@ async def add_cart(email):
                     "items": []
                 }
         
-        user_exist = await if_user_exists(
-            email,
-            COLECAO_USER
+        # user_exist = await if_user_exists(
+        #     email,
+        #     COLECAO_USER
                
+        # )
+        
+        product_exist = await if_product_exists(
+            COLECAO_PRODUCTS,
+            code 
+            
         )
         
         if user_exist == True:
