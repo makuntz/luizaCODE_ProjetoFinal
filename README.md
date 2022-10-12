@@ -1,11 +1,11 @@
 # Projeto Final: luiza < CODE >
 
-## Atividade API: Carrinho de compras - e commerce de roupas 
+## API: Carrinho de compras de um e-commerce de roupas 
 
-Esse projeto contém a implementação do projeto final do luiza < CODE >. Trata de um sistema de uma API de carrinho de compras utililizando rotas, validações e banco de dados.
+Esse repositório contém a implementação do projeto final do luiza < CODE >. Trata-se de uma API de carrinho de compras utililizando rotas, validações e banco de dados.
 
 ---
-## 🛠 Requisitos e Ferramentas:
+## :hammer: Requisitos e Ferramentas:
 
     .Python3
     .MongoDB
@@ -14,7 +14,7 @@ Esse projeto contém a implementação do projeto final do luiza < CODE >. Trata
 
 Somente é necessário ter o Python3 pré instalado para a execução do projeto. Outras dependências são gerenciadas pelo gerenciador de pacotes.
 
-
+---
 ## :construction: Instalação e execução:
 
 Após instalar o Python3:
@@ -40,7 +40,7 @@ Após instalar o Python3:
 Esse comando compila o projeto, iniciando o cliente em:
 
 > http://localhost:8000.
-
+---
 ## ⚙️ Funcionamento:
 
 Ao acessar a URL
@@ -51,6 +51,7 @@ A primeira rota/pagina (página principal) é apenas as boas vindas do projeto. 
 
 `Seja bem vinda!`
 
+---
 ## :page_facing_up: Documentação Swagger:
 
 Nessa etapa também é possível acessar a documentação Swagger através da URL:
@@ -59,6 +60,7 @@ Nessa etapa também é possível acessar a documentação Swagger através da UR
 
 Essa é uma documentação nativa da FastAPI. Para mais informações acesse a documentação a documentação [aqui](https://fastapi.tiangolo.com/tutorial/first-steps/#interactive-api-docs).
 
+---
 ## 💻 Divisão do Projeto:
 
 O projeto foi arquitetado em pastas, onde cada pasta possui arquivos com responsabilidades própria.
@@ -78,6 +80,7 @@ Já a divisão das responsabilidades são:
 - <b>Products: Marcella</b>
 - <b>Carts: Maíra e Lya</b>
 
+---
 ## :memo: Regras de negócio:
 
 ### O que será possivel fazer:
@@ -89,7 +92,6 @@ Já a divisão das responsabilidades são:
  - [x] Atualizar os dados de um produto pelo código
  - [x] Pesquisar um produto pelo código
  - [x] Pesquisar um produto pelo nome
- - [x]
 
 ### O que não será possível fazer:
 - Remover um cliente
@@ -100,7 +102,7 @@ Já a divisão das responsabilidades são:
 - Consultar quantos carrinhos fechados os clientes possuem 
 - Excluir carrinho do cliente
 
-
+---
 ## :globe_with_meridians: Rotas e endpoints:
 
 Os endpoints disponíveis são:
@@ -165,7 +167,7 @@ Dados retornados:
   * Estado 
 
 
-## Cart
+### Cart
 ##### POST "api/cart/{id_user}/{id_product}" 
 Adicionar um carrinho passando um usuario e um produto como pamâmetro
 Dados enviados:
@@ -174,7 +176,7 @@ Dados enviados:
 
 Dados retornados:
 
-
+---
 ## :rocket: Desenvolvedoras: 
 
 <table>
