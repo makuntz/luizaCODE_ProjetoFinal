@@ -34,12 +34,13 @@ async def get_cart_by_email(cart_collection, email):
         
 
 
-async def update_cart(cart_collection, email, produto):
+async def update_cart(cart_collection, cart, produto):
     try:
         cart = await cart_collection.update_one(
-            {'carts.address.user.email': email}, 
+            {'address.user.email': cart["address"]["user"]["email"]},
             {"$addToSet": {"produto": produto}}
         )
+        print(cart)
         if cart:
             return cart
     except Exception as e:
