@@ -16,6 +16,13 @@ GET {{url}}
 # Cadastra/salva usuário
 POST {{apiUser}}
 
+{
+    "name": "Mah",
+    "email": "mah@email.com",
+    "password": "senha123",
+    "is_active": 1
+}
+
 ###
 # Buscando usuario pelo email
 GET {{apiUser}}/lyazinha@gmail.com

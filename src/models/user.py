@@ -1,8 +1,8 @@
 
 from src.schemas.user import UserSchema
+from typing import List
 
-
-async def create_user(user_collection, user: UserSchema):
+async def create_user(user_collection, user):
     try:
         user = await user_collection.insert_one(user)
         
@@ -45,6 +45,20 @@ async def if_user_exists(email, user_collection):
     if user:
         return True
     return False
+
+async def get_all_users(user_collection) -> List[dict]:
+    try:
+        filtro = {}
+        lista_todas = []
+        cursor_pesquisa = user_collection.find(filtro)
+        async for user in cursor_pesquisa:
+            user['_id'] = str(user['_id'])
+            lista_todas.append(user)     
+        return lista_todas
+    
+    except Exception as e:
+        print(f'get_all_users.error: {e}')
+
     
 
 
