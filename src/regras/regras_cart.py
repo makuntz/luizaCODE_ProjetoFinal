@@ -37,24 +37,26 @@ async def add_cart(email):
         
     
     
-async def insert_product(email, code):
+async def insert_product(email, product_code: int):
 
-   cart_recieve = await get_cart_by_email(
-       COLECAO_CART,
-       email
-   )
-   print(cart_recieve)
-   
-   product_recieve = await get_product_by_code(
-       COLECAO_PRODUCTS,
-       code
-   )
-   
-   print(product_recieve)
-   await update_cart(
+    cart_recieve = await get_cart_by_email(
         COLECAO_CART,
-        cart_recieve,
-        product_recieve
-   )
+        email
+    )
+    #    print(cart_recieve)
+    
+    # product_recieve = await get_product_by_code(
+    #     COLECAO_PRODUCTS,
+    #     product_code
+    # )
+    teste = int(product_code)
+    product_recieve = await COLECAO_PRODUCTS.find_one({"code": teste})
+    print(product_recieve)
+    
+    await update_cart(
+            COLECAO_CART,
+            cart_recieve,
+            product_recieve
+    )
    
-   print("xablau")
+    print("xablau")

@@ -63,7 +63,7 @@ content-type: application/json
 
 ###
 #Buscando produto pelo código
-GET {{apiProduto}}/code/1/
+GET {{apiProduto}}/code/2/
 content-type: application/json
 
 ###
@@ -89,8 +89,8 @@ PUT  {{apiProduto}}/634487b153fefae453ecc69c
 POST {{apiCart}}/lyazinha@gmail.com
 
 ###
-PUT {{apiCart}}/product/lyazinha@gmail.com/2
-
+POST {{apiCart}}/lyazinha@gmail.com/2
+content-type: application/json
 
 ###
 @apiAddress={{url}}/api/address

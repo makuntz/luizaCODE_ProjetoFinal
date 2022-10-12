@@ -15,9 +15,9 @@ rota_carts = APIRouter(
 async def cart_crud(email):
     return await add_cart(email)
 
-@rota_carts.put("/product/{email}/{id_product}")
-async def add_product_cart(email, id_product):
-        return insert_product(email, id_product)
+@rota_carts.post("/{email}/{code}")
+async def add_product_cart(email, product_code):
+        return await insert_product(email, product_code)
    
    
     

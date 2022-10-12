@@ -44,12 +44,13 @@ async def get_product_by_id(product_collection, product_id):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST)
         
 async def get_product_by_code(product_collection, product_code):
+   
     try:
-        filtro = {'code': product_code}
-        product = await product_collection.find_one(filtro)
+        # filtro = {'code': 2}
+        product = await product_collection.find_one({'code': product_code})
         
         if product:
-            product['_id'] = str(product['_id'])
+            # product['_id'] = str(product['_id'])
             return product
         return {'status': 'product not found', "status_code": status.HTTP_200_OK}
         

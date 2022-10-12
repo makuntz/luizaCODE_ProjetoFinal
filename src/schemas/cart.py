@@ -3,7 +3,7 @@ from decimal import Decimal
 from typing import List
 from pydantic import BaseModel, Field
 from src.schemas.user import UserSchema
-from src.schemas.address import Address
+from src.schemas.address import Address, AddressSchema
 from src.schemas.product import ProductSchema
 
 # from src.schemas.address import Address
@@ -11,7 +11,7 @@ from src.schemas.product import ProductSchema
 
 class CartSchema(BaseModel):
     # user: UserSchema
-    address: Address
+    address: AddressSchema
     price: Decimal = Field(max_digits=10, decimal_places=2)
     paid: bool = Field(default=False)
     create: datetime.datetime = Field(default=datetime.datetime.now())
