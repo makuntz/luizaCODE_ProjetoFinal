@@ -18,14 +18,14 @@ POST {{apiUser}}
 
 {
     "name": "Mah",
-    "email": "mah@email.com",
+    "email": "mairakuntz@email.com",
     "password": "senha123",
     "is_active": 1
 }
 
 ###
 # Buscando usuario pelo email
-GET {{apiUser}}/lyazinha@gmail.com
+GET {{apiUser}}/mairakuntz@email.com
 
 ###
 # Faz busca todos os usuários
@@ -120,7 +120,7 @@ PUT  {{apiProduto}}/634487b153fefae453ecc69c
 
 ###
 # Criando/salvando um carrinho
-POST {{apiCart}}/lyazinha@gmail.com
+POST {{apiCart}}/mairakuntz@email.com
 
 ###
 # Inserindo produto no carrinho pelo código do produto

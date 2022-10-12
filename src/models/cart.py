@@ -48,10 +48,4 @@ async def update_cart(cart_collection, cart, produto):
         print(f'update_cart.error: {e}')
         
 
-async def if_product_exists(cart_collection, code):
 
-    cart = await cart_collection.find_one({'code': code})
-
-    if cart:
-        return True
-    return False
