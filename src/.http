@@ -89,10 +89,8 @@ PUT  {{apiProduto}}/634487b153fefae453ecc69c
 POST {{apiCart}}/lyazinha@gmail.com
 
 ###
-POST {{apiCart}}/lyazinha@gmail.com/3
+POST {{apiCart}}/lyazinha@gmail.com/2
 
-###
-PUT  {{apiCart}}/total/lyazinha@gmail.com
 
 
 ###
