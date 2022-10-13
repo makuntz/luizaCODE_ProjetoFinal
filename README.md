@@ -132,7 +132,7 @@ Retorna todos os produtos cadastrados.
 Cadastra um novo produto.
 
 <p align="center">
-<img src="assets/post_products.png" width="700px" align="center">
+<img src="assets/post_product.png" width="700px" align="center">
 <p/>
 
 ##### GET "/api/products/{id_product}/" 
@@ -147,6 +147,24 @@ Deleta o produto.
 
 <p align="center">
 <img src="assets/delete_products.png" width="700px" align="center">
+<p/>
+
+##### GET "/api/products/code/{code}/"
+Busca o produto pelo código.
+<p align="center">
+<img src="assets/get_product_code.png" width="700px" align="center">
+<p/>
+
+##### GET "/api/products/name/{name}/"
+Busca o produto pelo nome.
+<p align="center">
+<img src="assets/get_product_name.png" width="700px" align="center">
+<p/>
+
+##### PUT "/api/products/{id_produto}"
+Atualiza o produto.
+<p align="center">
+<img src="assets/put_product.png" width="700px" align="center">
 <p/>
 
 ### Users
@@ -183,19 +201,19 @@ Faz busca do endereço através do email que for passado como parâmetro.
 <img src="assets/get_address.png" width="700px" align="center">
 <p/>
 
-##### DELETE "api/address/{email}" 
-Deleta o endereço.
-<p align="center">
-<img src="assets/delete_address.png" width="700px" align="center">
-<p/>
 
 ### Cart
-##### POST "api/cart/{id_user}/{id_product}" 
-Adicionar um carrinho passando um usuario e um produto como pamâmetro.
+##### POST "api/cart/{email}" 
+Cria um novo carrinho.
 <p align="center">
 <img src="assets/post_cart.png" width="700px" align="center">
 <p/>
 
+##### PUT "api/cart/{id_user}/{id_product}" 
+Adicionar um produto no carrinho.
+<p align="center">
+<img src="assets/put_cart.png" width="700px" align="center">
+<p/>
 
 ---
 ## :rocket: Desenvolvedoras: 
