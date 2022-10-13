@@ -1,19 +1,22 @@
 import datetime
 from decimal import Decimal
+from itertools import product
+from typing import List
 from pydantic import BaseModel, Field
+from src.schemas.user import UserSchema
+from src.schemas.address import Address, AddressSchema
+from src.schemas.product import ProductSchema
 
 # from src.schemas.address import Address
 # from src.schemas.user import UserSchema
 
 class CartSchema(BaseModel):
-    # user: UserSchema
-    user: str
-    price: Decimal = Field(max_digits=10, decimal_places=2)
-    paid: bool = Field(default=False)
+    address: AddressSchema
     create: datetime.datetime = Field(default=datetime.datetime.now())
-    #address: Address
+    product: List[ProductSchema]=[]
+    item: List=[]
   
-  
+
     
 # 1.
 
