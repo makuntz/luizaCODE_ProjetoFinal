@@ -154,6 +154,8 @@ Deleta o produto.
 ##### POST "/api/user" 
 Cadastra um novo usuário:
 
+##### GET "/api/user/" 
+Retorna todos os usuários.
 
 ##### GET "/api/user/{email}" 
 Busca um usuário pelo email passado como parâmetro.
