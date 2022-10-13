@@ -153,13 +153,21 @@ Deleta o produto.
 
 ##### POST "/api/user" 
 Cadastra um novo usuário:
+<p align="center">
+<img src="assets/post_user.png" width="700px" align="center">
+<p/>
 
 ##### GET "/api/user/" 
 Retorna todos os usuários.
+<p align="center">
+<img src="assets/get_users.png" width="700px" align="center">
+<p/>
 
 ##### GET "/api/user/{email}" 
 Busca um usuário pelo email passado como parâmetro.
-
+<p align="center">
+<img src="assets/get_user_email.png" width="700px" align="center">
+<p/>
 
 ### Address
 
