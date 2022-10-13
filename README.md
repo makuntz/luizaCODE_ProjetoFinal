@@ -113,70 +113,81 @@ Os endpoints disponíveis são:
 
 ##### GET "/" 
 Retorna a página inicial.
-Dados retornados:
-- Página inicial
+
+
+<p align="center">
+<img src="assets/get_home.png" width="700px" align="center">
+<p/>
+
+### Products 
+
+##### GET "/api/products" 
+Retorna todos os produtos cadastrados. 
+
+<p align="center">
+<img src="assets/get_products.png" width="700px" align="center">
+<p/>
+
+##### POST "/api/products" 
+Cadastra um novo produto.
+
+<p align="center">
+<img src="assets/post_products.png" width="700px" align="center">
+<p/>
+
+##### GET "/api/products/{id_product}/" 
+Retorna o produto pelo id. 
+
+<p align="center">
+<img src="assets/get_products_id.png" width="700px" align="center">
+<p/>
+
+##### DELETE "/api/products/{id_product}/" 
+Deleta o produto. 
+
+<p align="center">
+<img src="assets/delete_products.png" width="700px" align="center">
+<p/>
 
 ### Users
 
 ##### POST "/api/user" 
 Cadastra um novo usuário:
-Dados enviados:
 
-- nome do usuário
-- email 
-- senha 
-- usuário ativo
-
-Dados retornados:
-- Sucesso/ Erro 
+##### GET "/api/user/" 
+Retorna todos os usuários.
 
 ##### GET "/api/user/{email}" 
 Busca um usuário pelo email passado como parâmetro.
-Dados enviados:
- - email
 
-Dados retornados:
-- Usuário:
-  * Id
-  * Nome
-  * Email
 
 ### Address
 
 ##### POST "api/address/{id_user}"
 Adiciona um novo endereço ao usuário.
-Dados enviados:
-- Id do usuário 
-- Nome da rua 
-- CEP
-- Cidade
-- Estado 
-- Opção de entrega 
-
-Dados retornados:
-- Sucesso/ Erro
+<p align="center">
+<img src="assets/post_address.png" width="700px" align="center">
+<p/>
 
 ##### GET "api/address/{email}" 
 Faz busca do endereço através do email que for passado como parâmetro.
-Dados enviados:
-- Email
+<p align="center">
+<img src="assets/get_address.png" width="700px" align="center">
+<p/>
 
-Dados retornados:
-- Endereço:
-  * Nome da rua 
-  * CEP
-  * Cidade
-  * Estado 
-
+##### DELETE "api/address/{email}" 
+Deleta o endereço.
+<p align="center">
+<img src="assets/delete_address.png" width="700px" align="center">
+<p/>
 
 ### Cart
 ##### POST "api/cart/{id_user}/{id_product}" 
-Adicionar um carrinho passando um usuario e um produto como pamâmetro
-Dados enviados:
-- Id do usuário
-- Id do produto
+Adicionar um carrinho passando um usuario e um produto como pamâmetro.
+<p align="center">
+<img src="assets/post_cart.png" width="700px" align="center">
+<p/>
 
-Dados retornados:
 
 ---
 ## :rocket: Desenvolvedoras: 
