@@ -10,6 +10,43 @@
 GET {{url}}
 
 ###
+# URL básica para api de usuarios
+@apiUser={{url}}/api/user
+
+# Cadastra/salva usuário
+POST {{apiUser}}
+
+{
+    "name": "Mah",
+    "email": "mairakuntz@email.com",
+    "password": "senha123",
+    "is_active": 1
+}
+
+###
+# Buscando usuario pelo email
+GET {{apiUser}}/mairakuntz@email.com
+
+###
+# Faz busca todos os usuários
+GET {{apiUser}}
+
+
+###
+# URL basica para api de endereco
+@apiAddress={{url}}/api/address
+
+###
+# Criando endereco e associando ao usuario atraves do email
+POST {{apiAddress}}/lyazinha@gmail.com
+
+###
+# Buscando endereço pelo email 
+GET {{apiAddress}}/lyazinha@gmail.com
+
+
+
+###
 # URL base para a api de produtos
 @apiProduto={{url}}/api/products
 
@@ -18,14 +55,27 @@ GET {{url}}
 POST {{apiProduto}}
 
 {
-    "name": "Saia preta da Shein",
+    "code": 1,
+    "name": "cs",
+    "description": "Blusa de gola v 10% Poliester e 90% algodão",
+    "price": 0.1
+}
+
+###
+# Cadastra/salva um novo produto
+POST {{apiProduto}}
+
+{
+    "code": 2,
+    "name": "Blusa de gola v ",
     "size": "M",
-    "decription": "Saia de courinho preto",
+    "description": "Blusa de gola v 10% Poliester e 90% algodão",
     "price": 50.00,
-    "type": "saia",
+    "image": "",
+    "type": "blusa",
     "category": "feminina",
-    "trademark": "Shein",
-    "color": "preto"
+    "trademark": "Marisa",
+    "color": "branca"   
 }
 
 ###
@@ -35,23 +85,45 @@ content-type: application/json
 
 ###
 #Buscando produto por id
-GET {{apiProduto}}/6342df86e7e1820dd03c39be
+GET {{apiProduto}}/6344b4d807b7878a94f2675d/
+content-type: application/json
+
+###
+#Buscando produto pelo código
+GET {{apiProduto}}/code/2/
+content-type: application/json
+
+###
+#Buscando produto pelo nome
+GET {{apiProduto}}/name/gola
 content-type: application/json
 
 ###
 #Deletando produto por id
-DELETE  {{apiProduto}}/6342df86e7e1820dd03c39be
+DELETE  {{apiProduto}}/6344b4d807b7878a94f2675d/
 content-type: application/json
 
 ###
+# Atualizar todos ou um dados do produto pelo id
+PUT  {{apiProduto}}/634487b153fefae453ecc69c
+
+{
+    "size": "G"
+}
+
+
+
+
+# URL basica para api do carrinho
+###
 @apiCart={{url}}/api/cart
-POST {{apiCart}}/123456/554456
-
 
 ###
-@apiAddress={{url}}/api/address
-POST {{apiAddress}}/123456
+# Criando/salvando um carrinho
+POST {{apiCart}}/mairakuntz@email.com
 
 ###
-GET {{apiAddress}}/mkprovida@gmail.com
+# Inserindo produto no carrinho pelo código do produto
+PUT {{apiCart}}/lyazinha@gmail.com/2
+
 

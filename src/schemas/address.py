@@ -7,7 +7,6 @@ from src.schemas.user import UserSchema
 class Address(BaseModel):
     street: str
     cep: str
-    district: str
     city: str
     state: str
     is_delivery: bool = Field(default=True)
