@@ -139,14 +139,14 @@ Cadastra um novo produto.
 Retorna o produto pelo id. 
 
 <p align="center">
-<img src="assets/get_products_id.png" width="700px" align="center">
+<img src="assets/get_product_id.png" width="700px" align="center">
 <p/>
 
 ##### DELETE "/api/products/{id_product}/" 
 Deleta o produto. 
 
 <p align="center">
-<img src="assets/delete_products.png" width="700px" align="center">
+<img src="assets/delete_product.png" width="700px" align="center">
 <p/>
 
 ##### GET "/api/products/code/{code}/"
